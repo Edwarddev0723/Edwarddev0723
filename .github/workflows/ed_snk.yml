@@ -1,29 +1,37 @@
-name: generate animation
+name: 部署到 GitHub Pages
+
+# 1) 明確開啟寫入權限，讓 GITHUB_TOKEN 可以推送
+permissions:
+  contents: write
+  pages: write
 
 on:
-  schedule:
-    - cron: "0 */6 * * *" # every 6 hours
-  workflow_dispatch:
+  push:
+    branches:
+      - main     # 當推送到 main 分支時觸發
 
 jobs:
-  generate:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
 
     steps:
-      # generates a snake game from a github user (<github_user_name>) contributions graph, output a svg animation at <svg_out_path>
-      - name: generate github-contribution-grid-snake.svg
-        uses: Platane/snk@master
+      # 2) 先把程式碼拉下來
+      - name: 1) Checkout 程式碼
+        uses: actions/checkout@v3
         with:
-          github_user_name: Edwarddev0723
-          svg_out_path: dist/github-contribution-grid-snake.svg
+          # persist-credentials 預設為 true，可讀寫后續推送
+          persist-credentials: true
 
-      # push the content of <build_dir> to a branch
-      # the content will be available at https://raw.githubusercontent.com/<github_user>/<repository>/<target_branch>/<file> , or as github page
-      - name: push github-contribution-grid-snake.svg to the output branch
+      # 3) 安裝相依並產生靜態檔案
+      - name: 2) 安裝並建置
+        run: |
+          npm ci
+          npm run build
+
+      # 4) 推送到 GitHub Pages
+      - name: 3) 部署到 GitHub Pages
         uses: crazy-max/ghaction-github-pages@v2.5.0
         with:
-          target_branch: output
-          build_dir: dist
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist        # 請視專案實際輸出資料夾調整
+          # pages_branch: output     # 如要改推到非預設分支，可解除註解並指定
