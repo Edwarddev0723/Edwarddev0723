@@ -56,6 +56,9 @@
   <a href="https://www.linkedin.com/in/edwarddata" target="_blank" rel="noopener">
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
+  <a href="https://www.kaggle.com/edwardhuangtw" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle Badge"/>
+  </a>
   <!-- Medium 徽章 -->
   <a href="https://medium.com/@renhehuang0723" target="_blank" rel="noopener">
     <img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium Badge"/>
@@ -64,6 +67,7 @@
   <a href="https://huggingface.co/renhehuang" target="_blank" rel="noopener">
     <img src="https://img.shields.io/badge/Hugging%20Face-FF9900?style=for-the-badge&logo=huggingface&logoColor=white" alt="Hugging Face Badge"/>
   </a>
+  
 </p>
 
 ---
