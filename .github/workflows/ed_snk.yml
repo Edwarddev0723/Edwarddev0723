@@ -1,37 +1,97 @@
-name: 部署到 GitHub Pages
+name: GitHub Snake Game
 
-# 1) 明確開啟寫入權限，讓 GITHUB_TOKEN 可以推送
-permissions:
-  contents: write
-  pages: write
+
 
 on:
+
+  # Schedule the workflow to run daily at midnight UTC
+
+  schedule:
+
+    - cron: "0 0 * * *"
+
+
+
+  # Allow manual triggering of the workflow
+
+  workflow_dispatch:
+
+
+
+  # Trigger the workflow on pushes to the main branch
+
   push:
+
     branches:
-      - main     # 當推送到 main 分支時觸發
+
+      - main
+
+
 
 jobs:
-  build-and-deploy:
+
+  generate:
+
     runs-on: ubuntu-latest
 
+    timeout-minutes: 10
+
+
+
     steps:
-      # 2) 先把程式碼拉下來
-      - name: 1) Checkout 程式碼
+
+      # Step 1: Checkout the repository
+
+      - name: Checkout Repository
+
         uses: actions/checkout@v3
-        with:
-          # persist-credentials 預設為 true，可讀寫后續推送
-          persist-credentials: true
 
-      # 3) 安裝相依並產生靜態檔案
-      - name: 2) 安裝並建置
-        run: |
-          npm ci
-          npm run build
 
-      # 4) 推送到 GitHub Pages
-      - name: 3) 部署到 GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.5.0
+
+      # Step 2: Generate the snake animations
+
+      - name: Generate GitHub Contributions Snake Animations
+
+        uses: Platane/snk@v3
+
         with:
+
+          # GitHub username to generate the animation for
+
+          github_user_name: ${{ github.repository_owner }}
+
+
+
+          # Define the output files and their configurations
+
+          outputs: |
+
+            dist/github-snake.svg
+
+            dist/github-snake-dark.svg?palette=github-dark
+
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#64a1f4,#4b91f1,#3c7dd9
+
+        env:
+
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+      # Step 3: Deploy the generated files to the 'output' branch
+
+      - name: Deploy to Output Branch
+
+        uses: peaceiris/actions-gh-pages@v3
+
+        with:
+
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist        # 請視專案實際輸出資料夾調整
-          # pages_branch: output     # 如要改推到非預設分支，可解除註解並指定
+
+          publish_dir: ./dist
+
+          publish_branch: output
+
+          # Optionally, you can set a custom commit message
+
+          commit_message: "Update snake animation [skip ci]"
