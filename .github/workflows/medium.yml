@@ -2,30 +2,33 @@ name: Update recent Medium posts
 
 on:
   schedule:
-    - cron: '0 11 * * *'      # 每日 19:00 (UTC+8)
+    - cron: '0 11 * * *'          # 每日 19:00 (UTC+8)
   workflow_dispatch:
 
 permissions:
   contents: write
 
 jobs:
-  update-blog:
+  blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Update README with latest Medium posts
-        uses: gautamkrishnar/blog-post-workflow@v1
+      - uses: gautamkrishnar/blog-post-workflow@v1
         with:
           feed_list: "https://rss.app/feeds/wzKzVkFIhLfE3ytS.xml"
           max_post_count: 4
           date_format: "yyyy-MM-dd"
-          commit_message: "docs(readme): update recent Medium posts"
+
+          # ① 把 <media:thumbnail url="..."/> 映射成 $thumb
+          custom_tags: "thumb/media:thumbnail/"
+
+          # ② 每篇文章的排版（無 item_exec）
           template: |
-            <!-- BLOG-POST-LIST:START -->
-            <table><tr>$posts</tr></table>
-            <!-- BLOG-POST-LIST:END -->
-          item_exec: |
-            echo "<td align=\"center\" width=\"25%\"><a href=\"$url\" target=\"_blank\"><img src=\"$banner\" width=\"200\" style=\"border-radius:12px\"/><br/><sub>📝 $title</sub><br/><sub>📅 $date</sub></a></td>"
-          custom_tags: "media:thumbnail"
-          disable_html_encoding: true
+            <a href="$url" target="_blank" style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+              <img src="$thumb" width="80" style="border-radius:8px"/>
+              <div>
+                <b>$title</b><br/>
+                <sub>📅 $date</sub>
+              </div>
+            </a>$newline
