@@ -41,11 +41,15 @@
 
 ---
 ## 📖 最新 Medium 文章
-<!-- BLOG-POST-LIST:START -->
-- [一文解鎖 LLM 核心優化法：Prompt × RAG × Fine‑tune 全流程評估指南](https://medium.com/@renhehuang0723/%E4%B8%80%E6%96%87%E8%A7%A3%E9%8E%96-llm-%E6%A0%B8%E5%BF%83%E5%84%AA%E5%8C%96%E6%B3%95-prompt-rag-fine-tune-%E5%85%A8%E6%B5%81%E7%A8%8B%E8%A9%95%E4%BC%B0%E6%8C%87%E5%8D%97-74d02791364b?source=rss-5747bd060919------2)
-- [AI影像論文&lpar;08&rpar;：MureObjectStitch影像合成模型-論文筆記整理](https://medium.com/@renhehuang0723/ai%E5%BD%B1%E5%83%8F%E8%AB%96%E6%96%87-08-mureobjectstitch%E5%BD%B1%E5%83%8F%E5%90%88%E6%88%90%E6%A8%A1%E5%9E%8B-%E8%AB%96%E6%96%87%E7%AD%86%E8%A8%98%E6%95%B4%E7%90%86-d6a2d07fc6c1?source=rss-5747bd060919------2)
-- [AI影像論文&lpar;07&rpar;：IMPRINT影像合成模型-論文筆記整理](https://medium.com/@renhehuang0723/ai%E5%BD%B1%E5%83%8F%E8%AB%96%E6%96%87-07-imprint%E5%BD%B1%E5%83%8F%E5%90%88%E6%88%90%E6%A8%A1%E5%9E%8B-%E8%AB%96%E6%96%87%E7%AD%86%E8%A8%98%E6%95%B4%E7%90%86-e1fba539190b?source=rss-5747bd060919------2)
-<!-- BLOG-POST-LIST:END -->
+<!-- BLOG-POST-LIST:START --><!-- BLOG-POST-LIST:START -->
+<table><tr>${posts}</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
+<table><tr>${posts}</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
+<table><tr>${posts}</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
+<table><tr>${posts}</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:END -->
 
 ## ⏳ 近期貢獻
 
