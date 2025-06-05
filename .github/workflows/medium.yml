@@ -1,0 +1,17 @@
+name: 最新 Medium 文章
+on:
+  schedule:
+    - cron: '0 */6 * * *'   # 每 6 小時執行一次
+  workflow_dispatch:        # 允許手動重跑
+permissions:
+  contents: write           # 允許寫入 README
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: gautamkrishnar/blog-post-workflow@v1
+        with:
+          feed_list: "https://medium.com/feed/@renhehuang0723"
+          max_post_count: 3            # 顯示 3 篇
