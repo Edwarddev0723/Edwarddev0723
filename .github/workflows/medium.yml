@@ -1,8 +1,10 @@
 name: Update recent Medium posts
+
 on:
   schedule:
-    - cron: '0 11 * * *'   # 每日 19:00 (UTC+8)
+    - cron: '0 11 * * *'      # 每日 19:00 (UTC+8)
   workflow_dispatch:
+
 permissions:
   contents: write
 
@@ -19,21 +21,11 @@ jobs:
           max_post_count: 4
           date_format: "yyyy-MM-dd"
           commit_message: "docs(readme): update recent Medium posts"
-
-          # 🔽 直接用 template 排版，每篇生成一格 <td>
           template: |
             <!-- BLOG-POST-LIST:START -->
-            <table><tr>
-              <td align="center" width="25%">
-                <a href="$url" target="_blank">
-                  <img src="$banner" width="200" style="border-radius:12px"/><br/>
-                  <sub>📝 $title</sub><br/>
-                  <sub>📅 $date</sub>
-                </a>
-              </td>$newline
-            </tr></table>
+            <table><tr>$posts</tr></table>
             <!-- BLOG-POST-LIST:END -->
-
-          # 讓 $banner 能取到 <media:thumbnail>
-          custom_tags: "banner/media:thumbnail/"
+          item_exec: |
+            echo "<td align=\"center\" width=\"25%\"><a href=\"$url\" target=\"_blank\"><img src=\"$banner\" width=\"200\" style=\"border-radius:12px\"/><br/><sub>📝 $title</sub><br/><sub>📅 $date</sub></a></td>"
+          custom_tags: "media:thumbnail"
           disable_html_encoding: true
