@@ -12,6 +12,10 @@ jobs:
       - uses: gautamkrishnar/blog-post-workflow@v1
         with:
           feed_list: "https://medium.com/feed/@renhehuang0723"
-          max_post_count: 4           # 顯示 4 篇
+          max_post_count: 4
+          date_format: "yyyy-mm-dd"
           template: |
-            - [$title]($url)$newline  # 每篇一列，最保險
+            <a href="$url" target="_blank" style="display:inline-block;width:45%;margin:1%;">
+              <strong>$title</strong><br/>
+              <sub>📅 $date</sub>
+            </a>$newline
