@@ -1,6 +1,6 @@
 name: Medium RSS → README
 on:
-  workflow_dispatch:      # 手動測
+  workflow_dispatch:
 permissions:
   contents: write
 
@@ -12,16 +12,6 @@ jobs:
       - uses: gautamkrishnar/blog-post-workflow@v1
         with:
           feed_list: "https://medium.com/feed/@renhehuang0723"
-          max_post_count: 4
+          max_post_count: 4           # 顯示 4 篇
           template: |
-            <!-- BLOG-POST-LIST:START -->
-            <table><tr>$posts</tr></table>
-            <!-- BLOG-POST-LIST:END -->
-          itemTemplate: |
-            <td align="center" width="25%">
-              <a href="$url" target="_blank">
-                <img src="$banner" width="200" style="border-radius:12px"/><br/>
-                <sub>📝 $title</sub><br/>
-                <sub>📅 $date</sub>
-              </a>
-            </td>
+            - [$title]($url)$newline  # 每篇一列，最保險
