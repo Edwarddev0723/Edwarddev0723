@@ -41,8 +41,15 @@
 
 ---
 ## 📖 最新 Medium 文章
-<!-- BLOG-POST-LIST:START -->
-<!-- BLOG-POST-LIST:END -->
+<!-- BLOG-POST-LIST:START --><!-- BLOG-POST-LIST:START -->
+<table><tr>$posts</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
+<table><tr>$posts</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
+<table><tr>$posts</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
+<table><tr>$posts</tr></table>
+<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:END -->
 
 
 ## ⏳ 近期貢獻
