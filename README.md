@@ -41,16 +41,16 @@
 
 ---
 ## 📖 最新 Medium 文章
-<!-- BLOG-POST-LIST:START --><!-- BLOG-POST-LIST:START -->
-<table><tr>${posts}</tr></table>
-<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
-<table><tr>${posts}</tr></table>
-<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
-<table><tr>${posts}</tr></table>
-<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:START -->
-<table><tr>${posts}</tr></table>
-<!-- BLOG-POST-LIST:END --><!-- BLOG-POST-LIST:END -->
-
+<div align="center" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+  <a href="https://github-readme-medium-recent-article.vercel.app/medium/@renhehuang0723/0" target="_blank">
+    <img src="https://github-readme-medium-recent-article.vercel.app/medium/@renhehuang0723/0"
+         alt="latest medium article #0" width="280"/>
+  </a>
+  <a href="https://github-readme-medium-recent-article.vercel.app/medium/@renhehuang0723/1" target="_blank">
+    <img src="https://github-readme-medium-recent-article.vercel.app/medium/@renhehuang0723/1"
+         alt="latest medium article #1" width="280"/>
+  </a>
+</div>
 
 ## ⏳ 近期貢獻
 
