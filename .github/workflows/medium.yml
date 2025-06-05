@@ -2,12 +2,11 @@ name: Update recent Medium posts
 
 on:
   schedule:
-    # 每日 19:00 (UTC+8) 更新；如需調整請改 cron
-    - cron: '0 11 * * *'      # 11:00 UTC = 19:00 Taipei
-  workflow_dispatch:          # 允許手動觸發
+    - cron: '0 11 * * *'      # 每日 19:00 (UTC+8)
+  workflow_dispatch:
 
 permissions:
-  contents: write             # 讓 Action 能 commit README
+  contents: write
 
 jobs:
   update-blog:
@@ -18,27 +17,15 @@ jobs:
       - name: Update README with latest Medium posts
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://rss.app/feeds/wzKzVkFIhLfE3ytS.xml"   # ← 你的 rss.app 轉發 RSS
+          feed_list: "https://rss.app/feeds/wzKzVkFIhLfE3ytS.xml"
           max_post_count: 4
           date_format: "yyyy-MM-dd"
           commit_message: "docs(readme): update recent Medium posts"
-          # ------------- 自訂排版區 -------------
           template: |
             <!-- BLOG-POST-LIST:START -->
             <table><tr>$posts</tr></table>
             <!-- BLOG-POST-LIST:END -->
-          # 一篇文章一個卡片（HTML 使用 item_exec 產生）
           item_exec: |
-            echo '<td align="center" width="25%">
-                    <a href="$url" target="_blank">
-                      <img src="$banner" width="200" style="border-radius:12px"/><br/>
-                      <sub>📝 $title</sub><br/>
-                      <sub>📅 $date</sub>
-                    </a>
-                  </td>'
-          # 讀取 RSS 裏的縮圖 (media:thumbnail)
+            echo "<td align=\"center\" width=\"25%\"><a href=\"$url\" target=\"_blank\"><img src=\"$banner\" width=\"200\" style=\"border-radius:12px\"/><br/><sub>📝 $title</sub><br/><sub>📅 $date</sub></a></td>"
           custom_tags: "media:thumbnail"
-          # 若某篇無縮圖也能顯示文字
-          description_max_length: 0
-          title_max_length: 70
           disable_html_encoding: true
