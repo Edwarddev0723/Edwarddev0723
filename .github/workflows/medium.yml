@@ -1,21 +1,46 @@
-name: Medium RSS → README
+name: Update recent Medium posts
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 3 * * *'     # 每日 11:00 (UTC+8 = 19:00) 更新一次
+  workflow_dispatch:        # 需要時可手動觸發
+
 permissions:
   contents: write
 
 jobs:
-  blog:
+  update-blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: gautamkrishnar/blog-post-workflow@v1
+
+      - name: Update README with latest Medium posts
+        uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://medium.com/feed/@renhehuang0723"
+          feed_list: "https://rss.app/feeds/abCDefGhIjKL.rss"   # <— 你的 rss.app 連結
           max_post_count: 4
-          date_format: "yyyy-mm-dd"
+          date_format: "yyyy-MM-dd"
+          commit_message: "docs: update recent Medium posts"
           template: |
-            <a href="$url" target="_blank" style="display:inline-block;width:45%;margin:1%;">
-              <strong>$title</strong><br/>
-              <sub>📅 $date</sub>
-            </a>$newline
+            <!-- BLOG-POST-LIST:START -->
+            <table><tr>$posts</tr></table>
+            <!-- BLOG-POST-LIST:END -->
+          # ↓ 每篇文章的 HTML 卡片
+          #    * $banner 若抓不到封面，整行可關閉
+          #    * $date 已依 date_format 處理
+          custom_tags: "media:thumbnail"
+          title_max_length: 70
+          description_max_length: 0
+          tag_post_pre_newline: true
+          disable_html_encoding: true
+          sort_order: "desc"
+          reverse_order: false
+          # 卡片模板
+          template_omit_comments: true
+          item_exec: |
+            echo '<td align="center" width="25%">
+                    <a href="$url" target="_blank">
+                      <img src="$banner" width="200" style="border-radius:12px"/><br/>
+                      <sub>📝 $title</sub><br/>
+                      <sub>📅 $date</sub>
+                    </a>
+                  </td>'
