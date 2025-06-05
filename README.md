@@ -40,6 +40,9 @@
 </p>
 
 ---
+## 📖 最新 Medium 文章
+<!-- BLOG-POST-LIST:START -->
+<!-- BLOG-POST-LIST:END -->
 
 ## ⏳ 近期貢獻
 
