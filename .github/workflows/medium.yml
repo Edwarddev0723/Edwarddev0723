@@ -1,8 +1,6 @@
 name: Medium RSS → README
 on:
-  schedule:
-    - cron:  '0 */6 * * *'    # 每 6 小時
-  workflow_dispatch:          # 手動觸發
+  workflow_dispatch:      # 手動測
 permissions:
   contents: write
 
@@ -15,10 +13,10 @@ jobs:
         with:
           feed_list: "https://medium.com/feed/@renhehuang0723"
           max_post_count: 4
-          commit_message: "docs: update recent Medium posts"
-          # ↓↓↓ 這裡才放自訂排版 ↓↓↓
           template: |
+            <!-- BLOG-POST-LIST:START -->
             <table><tr>$posts</tr></table>
+            <!-- BLOG-POST-LIST:END -->
           itemTemplate: |
             <td align="center" width="25%">
               <a href="$url" target="_blank">
