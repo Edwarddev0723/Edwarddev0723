@@ -16,7 +16,7 @@ jobs:
       - name: Update README with latest Medium posts
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://rss.app/feeds/abCDefGhIjKL.rss"   # <— 你的 rss.app 連結
+          feed_list: "https://rss.app/feeds/wzKzVkFIhLfE3ytS.xml"   # <— 你的 rss.app 連結
           max_post_count: 4
           date_format: "yyyy-MM-dd"
           commit_message: "docs: update recent Medium posts"
