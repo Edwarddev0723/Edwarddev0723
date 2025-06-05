@@ -1,17 +1,29 @@
-name: 最新 Medium 文章
+name: Medium RSS → README
 on:
   schedule:
-    - cron: '0 */6 * * *'   # 每 6 小時執行一次
-  workflow_dispatch:        # 允許手動重跑
+    - cron:  '0 */6 * * *'    # 每 6 小時
+  workflow_dispatch:          # 手動觸發
 permissions:
-  contents: write           # 允許寫入 README
+  contents: write
 
 jobs:
-  update-readme:
+  blog:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: gautamkrishnar/blog-post-workflow@v1
         with:
           feed_list: "https://medium.com/feed/@renhehuang0723"
-          max_post_count: 3            # 顯示 3 篇
+          max_post_count: 4
+          commit_message: "docs: update recent Medium posts"
+          # ↓↓↓ 這裡才放自訂排版 ↓↓↓
+          template: |
+            <table><tr>$posts</tr></table>
+          itemTemplate: |
+            <td align="center" width="25%">
+              <a href="$url" target="_blank">
+                <img src="$banner" width="200" style="border-radius:12px"/><br/>
+                <sub>📝 $title</sub><br/>
+                <sub>📅 $date</sub>
+              </a>
+            </td>
