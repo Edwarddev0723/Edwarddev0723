@@ -1,11 +1,13 @@
 name: Update recent Medium posts
+
 on:
   schedule:
-    - cron: '0 3 * * *'     # 每日 11:00 (UTC+8 = 19:00) 更新一次
-  workflow_dispatch:        # 需要時可手動觸發
+    # 每日 19:00 (UTC+8) 更新；如需調整請改 cron
+    - cron: '0 11 * * *'      # 11:00 UTC = 19:00 Taipei
+  workflow_dispatch:          # 允許手動觸發
 
 permissions:
-  contents: write
+  contents: write             # 讓 Action 能 commit README
 
 jobs:
   update-blog:
@@ -16,26 +18,16 @@ jobs:
       - name: Update README with latest Medium posts
         uses: gautamkrishnar/blog-post-workflow@v1
         with:
-          feed_list: "https://rss.app/feeds/wzKzVkFIhLfE3ytS.xml"   # <— 你的 rss.app 連結
+          feed_list: "https://rss.app/feeds/wzKzVkFIhLfE3ytS.xml"   # ← 你的 rss.app 轉發 RSS
           max_post_count: 4
           date_format: "yyyy-MM-dd"
-          commit_message: "docs: update recent Medium posts"
+          commit_message: "docs(readme): update recent Medium posts"
+          # ------------- 自訂排版區 -------------
           template: |
             <!-- BLOG-POST-LIST:START -->
             <table><tr>$posts</tr></table>
             <!-- BLOG-POST-LIST:END -->
-          # ↓ 每篇文章的 HTML 卡片
-          #    * $banner 若抓不到封面，整行可關閉
-          #    * $date 已依 date_format 處理
-          custom_tags: "media:thumbnail"
-          title_max_length: 70
-          description_max_length: 0
-          tag_post_pre_newline: true
-          disable_html_encoding: true
-          sort_order: "desc"
-          reverse_order: false
-          # 卡片模板
-          template_omit_comments: true
+          # 一篇文章一個卡片（HTML 使用 item_exec 產生）
           item_exec: |
             echo '<td align="center" width="25%">
                     <a href="$url" target="_blank">
@@ -44,3 +36,9 @@ jobs:
                       <sub>📅 $date</sub>
                     </a>
                   </td>'
+          # 讀取 RSS 裏的縮圖 (media:thumbnail)
+          custom_tags: "media:thumbnail"
+          # 若某篇無縮圖也能顯示文字
+          description_max_length: 0
+          title_max_length: 70
+          disable_html_encoding: true
