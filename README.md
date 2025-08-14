@@ -12,7 +12,6 @@
 
 - 🚀  喜歡做出酷東西
 - 🛠️  擅長：Python, Text Data, Image Data, LLM, Diffusion Model
-- 💬  歡迎一起討論AI 技術
 
 ---
 
