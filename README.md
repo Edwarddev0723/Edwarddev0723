@@ -9,19 +9,21 @@
 
 ---
 
-## 🚀 技能樹
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,mongodb,mysql,postgres,docker,linux,git,github,vscode,figma&perline=10" />
-</p>
-
----
 
 ## 📈 GitHub 統計
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Edwarddev0723&show_icons=true&theme=tokyonight&hide_title=true" height="170"/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Edwarddev0723&layout=compact&theme=tokyonight" height="170"/>
+</p>
+
+---
+
+## 🚀 技能樹
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=python,pytorch,sklearn,mongodb,mysql,postgres,docker,linux,git,github,vscode,figma&perline=10" />
 </p>
 
 ---
