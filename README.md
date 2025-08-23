@@ -6,12 +6,6 @@
 <!-- 貢獻蛇動畫 -->
 ![snake gif](https://github.com/Edwarddev0723/Edwarddev0723/blob/output/github-snake-dark.svg)
 
----
-
-## 🧑‍💻 關於我
-
-- 🚀  喜歡做出酷東西
-- 🛠️  擅長：Python, Text Data, Image Data, LLM, Diffusion Model
 
 ---
 
@@ -28,27 +22,6 @@
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Edwarddev0723&show_icons=true&theme=tokyonight&hide_title=true" height="170"/>
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Edwarddev0723&layout=compact&theme=tokyonight" height="170"/>
-</p>
-
----
-
-## 🏆 GitHub 獎杯
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Edwarddev0723&theme=tokyonight&margin-w=10&margin-h=15&no-bg=true&no-frame=true"/>
-</p>
-
----
-
-
-
-
-
-
-## ⏳ 近期貢獻
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Edwarddev0723&theme=tokyo-night" />
 </p>
 
 ---
