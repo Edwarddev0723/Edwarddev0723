@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-    👋 I'm an <strong>AI Engineer</strong> passionate about <strong>LLMs, Computer Vision, and MLOps</strong>.
+    👋 I'm an <strong>AI Engineer</strong> passionate about <strong>MLLMs, LLMs, Computer Vision, and MLOps</strong>.
 </p>
 
 ---
