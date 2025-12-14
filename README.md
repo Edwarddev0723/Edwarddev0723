@@ -12,7 +12,6 @@
 
 <p align="center">
   <a href="https://github.com/readme-stats/github-readme-stats">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Edwarddev0723&theme=tokyonight&hide_border=true&stroke=0000&background=00000000" height="170" alt="GitHub Streak" />
     <img src="https://github.com/Edwarddev0723/Edwarddev0723/blob/output/github-snake-dark.svg?raw=true" width="100%" alt="snake animation"/>
   </a>
 </p>
