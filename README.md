@@ -18,18 +18,6 @@
 
 ---
 
-<h3 align="center">🚀 Tech Stack & Skills</h3>
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,sklearn,opencv&perline=10" />
-  <br>
-  <img src="https://skillicons.dev/icons?i=fastapi,mongodb,mysql,postgres,docker,linux&perline=10" />
-  <br>
-  <img src="https://skillicons.dev/icons?i=git,github,vscode,figma,notion&perline=10" />
-</p>
-
----
-
 <h3 align="center">🌐 Connect with Me</h3>
 
 <p align="center">
